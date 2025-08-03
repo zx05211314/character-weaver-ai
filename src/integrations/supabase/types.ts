@@ -14,7 +14,89 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      characters: {
+        Row: {
+          appearance_count: number | null
+          battle_skill: number | null
+          charm_skill: number | null
+          created_at: string
+          id: string
+          life_skill: number | null
+          magic_skill: number | null
+          name: string
+          novel_id: string
+          research_skill: number | null
+          summary: string | null
+          updated_at: string
+        }
+        Insert: {
+          appearance_count?: number | null
+          battle_skill?: number | null
+          charm_skill?: number | null
+          created_at?: string
+          id?: string
+          life_skill?: number | null
+          magic_skill?: number | null
+          name: string
+          novel_id: string
+          research_skill?: number | null
+          summary?: string | null
+          updated_at?: string
+        }
+        Update: {
+          appearance_count?: number | null
+          battle_skill?: number | null
+          charm_skill?: number | null
+          created_at?: string
+          id?: string
+          life_skill?: number | null
+          magic_skill?: number | null
+          name?: string
+          novel_id?: string
+          research_skill?: number | null
+          summary?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "characters_novel_id_fkey"
+            columns: ["novel_id"]
+            isOneToOne: false
+            referencedRelation: "novels"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      novels: {
+        Row: {
+          content: string | null
+          created_at: string
+          id: string
+          status: string | null
+          title: string
+          updated_at: string
+          url: string
+        }
+        Insert: {
+          content?: string | null
+          created_at?: string
+          id?: string
+          status?: string | null
+          title: string
+          updated_at?: string
+          url: string
+        }
+        Update: {
+          content?: string | null
+          created_at?: string
+          id?: string
+          status?: string | null
+          title?: string
+          updated_at?: string
+          url?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
